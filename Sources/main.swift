@@ -1,4 +1,10 @@
-// The Swift Programming Language
-// https://docs.swift.org/swift-book
+import ArgumentParser
 
-print("Hello, world!")
+struct PRSmith: ParsableCommand {
+    static let configuration = CommandConfiguration(
+        commandName: "prsmith",
+        abstract: "Generate professional GitHub Pull Request descriptions from your Git changes."
+    )
+}
+
+PRSmith.main()
