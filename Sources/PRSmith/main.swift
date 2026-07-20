@@ -5,6 +5,11 @@ struct PRSmith: ParsableCommand {
         commandName: "prsmith",
         abstract: "Generate professional GitHub Pull Request descriptions from your Git changes."
     )
+
+    func run() throws {
+        let markdown = try GenerationService().generate()
+        print(markdown)
+    }
 }
 
 PRSmith.main()

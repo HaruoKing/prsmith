@@ -47,7 +47,10 @@ struct GitCommandRunner {
             )
         }
 
-        return stdout.trimmingCharacters(in: .whitespacesAndNewlines)
+        // Only trailing newlines are trimmed here: git status --porcelain
+        // uses meaningful leading spaces in its status codes, so trimming
+        // leading whitespace would corrupt the first line.
+        return stdout.trimmingCharacters(in: .newlines)
     }
 
     func diff(arguments: [String] = []) throws -> String {
