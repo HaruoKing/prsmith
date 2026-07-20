@@ -4,7 +4,8 @@ import Foundation
 struct PRSmith: ParsableCommand {
     static let configuration = CommandConfiguration(
         commandName: "prsmith",
-        abstract: "Generate professional GitHub Pull Request descriptions from your Git changes."
+        abstract: "Generate professional GitHub Pull Request descriptions from your Git changes.",
+        version: "0.1.0"
     )
 
     @Option(name: [.short, .long], help: "Write the generated Markdown to a file instead of printing it.")
