@@ -16,10 +16,22 @@ The built binary will be available at `.build/release/PRSmith`.
 
 ## Usage
 
-Run the CLI from within a Git repository:
+Run the CLI from within a Git repository to print a generated PR description to the console:
 
 ```bash
 swift run PRSmith
+```
+
+Write the description to a file instead of printing it:
+
+```bash
+swift run PRSmith --output PULL_REQUEST.md
+```
+
+Print the CLI version:
+
+```bash
+swift run PRSmith --version
 ```
 
 See all available options:
@@ -35,20 +47,34 @@ $ swift run PRSmith --help
 OVERVIEW: Generate professional GitHub Pull Request descriptions from your Git
 changes.
 
-USAGE: prsmith
+USAGE: prsmith [--output <output>]
 
 OPTIONS:
+  -o, --output <output>   Write the generated Markdown to a file instead of
+                          printing it.
   -h, --help              Show help information.
 ```
 
-More usage examples will be added as PR generation features land.
+```bash
+$ swift run PRSmith
+## Summary
+
+2 files changed: 1 added, 1 modified
+
+## Changed Files
+
+| Status | File |
+| --- | --- |
+| Added | Sources/PRSmith/NewFile.swift |
+| Modified | Sources/PRSmith/main.swift |
+```
 
 ## Roadmap
 
 - [x] Initialize Swift package and CLI entry point
-- [ ] Parse changed files from Git
-- [ ] Generate Markdown PR descriptions
-- [ ] Output to console and file
+- [x] Parse changed files from Git
+- [x] Generate Markdown PR descriptions
+- [x] Output to console and file
 - [ ] Branch comparison and clipboard support
 - [ ] AI-assisted summaries
 
